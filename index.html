@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>E-commerce-product-page</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" sizes="32x32" href="./images/favicon-32x32.png">
+</head>
+
+<body>
+  <header class="top_header">
+    <nav class="nav_bar">
+      <div class="header_left">
+        <!-- Hamburger Menu Icon (hidden on desktop) -->
+        <img src="images/icon-menu.svg" alt="menu" class="hamburger" id="hamburger_menu">
+        <h1><a href="index.html">sneakers</a></h1>
+        <!-- Close Icon (hidden initially) -->
+        <img src="images/icon-close.svg" alt="close menu" class="close-menu" id="close_menu">
+        <ul class="menu_list" id="menu_list">
+          <li class="list_items"><a href="#">Collections</a></li>
+          <li class="list_items"><a href="#">Men</a></li>
+          <li class="list_items"><a href="#">Women</a></li>
+          <li class="list_items"><a href="#">About</a></li>
+          <li class="list_items"><a href="#">Contact</a></li>
+        </ul>
+      </div>
+
+      <div class="header_right">
+        <img src="images/icon-cart.svg" alt="" id="cart_img" onclick="toggleCartDropdown()">
+        <img src="images/image-avatar.png" alt="" id="user_img">
+        
+        <!-- Cart Dropdown -->
+        <div id="cart_dropdown" class="cart_dropdown">
+          <h4>Cart</h4>
+          <div id="cart_items">
+            <!-- Cart items will be injected here dynamically -->
+          </div>
+          <button id="checkout_button" style="display: none;">Checkout</button>
+        </div>
+      </div>
+      
+    </nav>
+
+    <!-- Overlay for menu when open on mobile -->
+    <div id="overlay" class="overlay"></div>
+  </header>
+
+  <section id="product_section">
+    <div class="container">
+      <div class="product">
+        <div class="big_image">
+          <img id="mainImage" src="images/image-product-1.jpg" alt="Product Image" onclick="openLightbox()">
+        </div>
+        <div class="thumbnails">
+
+          <img src="images/image-product-1-thumbnail.jpg" alt="Thumbnail 1"
+            onclick="changeImage('images/image-product-1.jpg')">
+          <img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail 2"
+            onclick="changeImage('images/image-product-2.jpg')">
+          <img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail 3"
+            onclick="changeImage('images/image-product-3.jpg')">
+          <img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail 4"
+            onclick="changeImage('images/image-product-4.jpg')">
+        </div>
+
+      </div>
+
+      <!-- Lightbox Overlay -->
+      <div id="lightbox" class="lightbox">
+        <span class="close-lightbox" onclick="closeLightbox()">&times;</span>
+        <img id="lightboxImage" class="lightbox-content" src="images/image-product-1.jpg">
+
+        <!-- Thumbnails inside the lightbox -->
+        <div class="thumbnails">
+          <img src="images/image-product-1-thumbnail.jpg" alt="Thumbnail 1"
+            onclick="changeLightboxImage('images/image-product-1.jpg')">
+          <img src="images/image-product-2-thumbnail.jpg" alt="Thumbnail 2"
+            onclick="changeLightboxImage('images/image-product-2.jpg')">
+          <img src="images/image-product-3-thumbnail.jpg" alt="Thumbnail 3"
+            onclick="changeLightboxImage('images/image-product-3.jpg')">
+          <img src="images/image-product-4-thumbnail.jpg" alt="Thumbnail 4"
+            onclick="changeLightboxImage('images/image-product-4.jpg')">
+        </div>
+
+        <!-- Lightbox Controls for navigating through images -->
+        <div class="lightbox-controls">
+          <span class="prev" onclick="navigateLightbox(-1)">&#10094;</span>
+          <span class="next" onclick="navigateLightbox(1)">&#10095;</span>
+        </div>
+      </div>
+
+      <!-- Overlay background -->
+      <div id="overlay2" class="overlay2"></div>
+
+
+
+      <div class="prod_desc">
+        <div class="prod_name">
+          <h3>SNEAKER COMPANY</h3>
+          <h1>Fall Limited Edition Sneakers</h1>
+        </div>
+        <p>These low-profile sneakers are your perfect casual wear companion.
+          Featuring a durable rubber outer sole, they’ll withstand everything
+          the weather can offer.</p>
+        <div class="price">
+          <h2>$125.00<span class="discount">50%</span></h2>
+          <h3><s>$250.00</s></h3>
+        </div>
+        <div class="purchase">
+          <div class="counter">
+            <button id="decrement" onclick="decrement()">−</button>
+            <span id="count">0</span>
+            <button id="increment" onclick="increment()">+</button>
+          </div>
+          <button id="add"><span class="icon icon-cart" aria-hidden="true"></span> Add to cart </button>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <script src="js/script.js"></script>
+</body>
+
+</html>
